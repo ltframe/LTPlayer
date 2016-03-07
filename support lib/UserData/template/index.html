@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<link href="css/css.css" rel="stylesheet" type="text/css" />
+	<script src="js/onerror.js"></script>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/jquery.minicolors.js" language="javascript"></script>
+    <script src="js/jquery.nicescroll.js" language="javascript"></script>
+    <script src="js/jquery.mousewheel.js" language="javascript"></script>
+	<script src="js/js.js"></script>
+	<link rel="stylesheet" href="css/jquery.minicolors.css">
+</head>
+<body id="details">
+
+	<canvas id="backgroundimage" class='canvas'></canvas>
+
+
+
+	<div id="dragfilemask">
+		<div class="spinner">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+		<div class="dropfileslistmessage">
+			<p id="dropfileslistmessage_title"></p>
+			<p id="dropfileslistmessage_path"></p>
+		</div>
+	</div>
+
+	<div ID="setting">
+		<div class="setttingtitlebar">
+			<div onclick="settingboxhide('setting')">
+				<img src="images/backicon.png"/>
+			</div>
+			<span class="settingbaricon">
+				<img src="images/seticontop.png"/>
+			</span>
+			<span class="settingbartext">
+				设置
+			</span>
+		</div>
+		<div ID="GOGOGO" class="settingpanelcontent">
+			<div class="content content1">
+				<div type="u" class="contentradius_top contentborder_buttom contentlist">
+					<div type="u" class="contentlisticon">
+						<img src="images/seticonl1.png" id="closetotray_icon" srcimg="images/seticonl1.png"/>
+					</div>
+						<span class="contenttextspan">点击关闭到系统托盘</span>
+					<div type="u"  class="contentlistcheckbox">
+						<input class='tgl tgl-light' id='closetotray' type='checkbox' onclick="contentlistcheckboxchange(this,'general')">
+						<label class='tgl-btn' for='closetotray'></label>
+					</div>
+				</div>
+				<div  type="u" class="contentborder_buttom contentlist">
+					<div  type="u" class="contentlisticon">
+						<img src="images/seticonl1.png" srcimg="images/seticonl1.png" id="alwaytray_icon"/>
+					</div>
+					<span class="contenttextspan">总显示托盘</span>
+					<div  type="u" class="contentlistcheckbox">
+						<input class='tgl tgl-light' id='alwaytray' type='checkbox' onclick="contentlistcheckboxchange(this,'general')">
+						<label class='tgl-btn' for='alwaytray'></label>
+					</div>
+				</div>
+				
+				<div  type="u" class="contentradius_buttom contentlist">
+					<div  type="u" class="contentlisticon">
+						<img src="images/seticonl1.png" srcimg="images/seticonl1.png" id="autoplay_icon"/>
+					</div>
+					<span class="contenttextspan">自动播放歌曲</span>
+					<div  type="u" class="contentlistcheckbox">
+						<input class='tgl tgl-light' id='autoplay' type='checkbox' onclick="contentlistcheckboxchange(this,'general')">
+						<label class='tgl-btn' for='autoplay'></label>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="content content2" id="contentinterface">
+				<div  type="u" class="contentradius_top contentborder_buttom contentlist">
+					<div type="u"  class="contentlisticon">
+						<img src="images/seticonl2.png" srcimg="images/seticonl2.png" id="transparent_icon"/>
+					</div>
+					<span class="contenttextspan">开启透明效果</span>
+					<div type="u" class="contentlistcheckbox">
+						<input class='tgl tgl-light' id='transparent' type='checkbox'  onclick="contentlistcheckboxchange(this,'interface')">
+						<label class='tgl-btn' for='transparent'></label>
+					</div>
+				</div>
+				<div id="hidden_transparent_div" style="display:none">
+					<div  type="u" class="contentborder_buttom contentlist" id="musiclisttransparentrange_div">
+						<div type="u"  class="contentlisticon">
+							<img src="images/seticonl2.png" srcimg="images/seticonl2.png" id="musiclisttransparent_icon"/>
+						</div>
+						<span class="contenttextspan">播放列表透明效果</span>
+						<div type="u" class="contentlistcheckbox">
+							<input class='tgl tgl-light' id='musiclisttransparent' type='checkbox'  onclick="contentlistcheckboxchange(this,'interface')">
+							<label class='tgl-btn' for='musiclisttransparent'></label>
+						</div>
+					</div>
+					<div type="u" class="contentborder_buttom contentlist" id="transparentrange_div">
+						<div class="contentlisticon">
+							<img src="images/seticonl2.png"/>
+						</div>
+						<div  type="u" class="contentlistslider">
+							<input onchange='settransparent(this.value)' type="range" id="transparentrange" min="0" max="10" step="1" value="0">
+						</div>
+						<span class="contenttextspan">透明度</span>
+					</div>
+			    </div>
+				<div type="u" class="contentborder_buttom contentlist">
+					<div type="u" class="contentlisticon" >
+						<img src="images/seticonl2.png" srcimg="images/seticonl2.png" id="backgroundmode_icon"/>
+					</div>
+					<span class="contenttextspan">播放时背景匹配封面风格</span>
+					<div  type="u" class="contentlistcheckbox">
+						<input class='tgl tgl-light' id='backgroundmode' type='checkbox' onclick="contentlistcheckboxchange(this,'interface')">
+						<label class='tgl-btn' for='backgroundmode'></label>
+					</div>
+				</div>
+				<div type="u" class="contentradius_buttom contentlist">
+					<div  type="u" class="contentlisticon">
+						<img src="images/seticonl2.png"/>
+					</div>
+					<div  type="u" class="form-control demo" id="backgroundcolor"></div>
+					<span class="contenttextspan">背景颜色</span>	
+				</div>
+			</div>
+			<div class="content content3">
+				<span class="contenttextspan">				 静静聆听音乐播放器 v0.0.1.7<br>
+				@本软件构建于LTFrame<br>
+				@音乐播放相关由BASS,ID3lib,DouBan提供<br>
+				</span>	
+
+			</div>
+		</div>
+	</div>
+	<div ID="containerwarrp">
+			<div id="close">
+				<a href="javascript:void(0)"  onclick="closewindow(1)" style="cursor:pointer" title="关闭">
+					<img src="images/close.png"/>
+				</a>
+		    </div>
+			<div id="close">
+				<a href="javascript:void(0)"  onclick="MinWindows()"  title="最小化">
+					<img src="images/min.png"/>
+				</a>
+		    </div>
+		    <div id="setbutton">
+				<a href="javascript:void(0)"  onclick="settingboxshow('setting')" style="cursor:pointer" title="设置">
+					<img src="images/option.png"/>
+				</a>
+		    </div>
+			<div id="border-title" onmousedown="DragWindow()">
+				<div id="logo" >
+					<img src="images/logo.png"/>
+				</div>
+			</div>			
+			<div class="body_middle">			
+					<div id="body_middle_li_left" >
+						<img src="../template/images/nocover.png" onclick="location.reload()" id="coverimage" width=100 height=100/>
+					</div>
+					<div id="body_middle_li_right">				
+						<div class="currentshowfilename"></div>
+						<div class="currentshowauth"></div>
+						<div class="playercontrol" id="playercontrol">
+							<div class="currentshowfiletime">00:00</div>
+							<div class="prebuttonpanel" title="前一首" onclick="preevent(this)">
+								
+							</div>
+							<div class="playbuttonpanel" title="播放" onclick="playevent(this.className)" id="playbutton">
+								
+							</div>
+							<div class="nextbuttonpanel" title="后一首" onclick="nextevent(this)">
+								
+							</div>
+							<div class="currentshowtotletime">00:00</div>
+						</div>
+						<div class="volumelayerwarrp" id="volumelayerbuttom_id">
+							<div class="volumelayerbuttom" >
+								<div class="volumelayertop" id="volumelayertop_id"></div>
+							</div>
+						</div>
+					</div>
+			</div>
+
+		<div class="list_div" id="musiclist">
+		</div>
+
+		<div class="list_bottom" id="list_bottom">
+			<div style="float: left;margin-left: 24px;margin-top: 8px;">
+				<a href="###" onclick="OpenMusicFileDialog()"><img style="width:15px;height:15px" src="images/add.png"  title="添加音乐"/></a>
+			</div>
+			<div class="list_bottom_right">
+				<div class="option" id="caonimade4207">
+					<DIV id="volumebar" class="volumebar">
+						<input onchange='ChangeMusicVolume(this.value)' type="range" id="volumerange" min="0" max="10" step="1" value="0">
+					</DIV>
+					<img src="images/volume.png" style="width:15px;height:15px" onclick="showvolumebardiv('caonimade4207','volumebar',30,100,0,-10)" title="音量"/>
+				</div>
+				<div class="option" id="caonimade4208" >
+					<DIV id="musiclooptype" class="musiclooptype">
+						<ul>
+							<li onclick="selectlooptype(this,0)">不 循 环√</li>
+							<li onclick="selectlooptype(this,1)">单曲循环</li>
+							<li onclick="selectlooptype(this,2)">列表循环</li>
+							<li onclick="selectlooptype(this,3)">随机播放</li>
+						</ul>
+					</DIV>
+					<img src="images/loop.png"  style="width:15px;height:15px" onclick="showvolumebardiv('caonimade4208','musiclooptype',72,100,-49,-10)" title="播放方式"/>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

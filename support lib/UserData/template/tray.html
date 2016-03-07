@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+  <link href="css/csstray.css" rel="stylesheet" type="text/css" />
+  <script src="js/onerror.js"></script>
+  <script src="js/jquery.min.js"></script>
+ <script src="js/jstray.js"></script>
+</head>
+<body>
+
+<div class="menu" type="box">
+	<div class="title" type="box" id="title">
+	</div>
+	<div class="playcontrol"  type="box">
+		<ul>
+			<li class="previous" title="前一首"></li>
+			<li class="play" id="playbutton"></li>
+			<li class="next" title="下一首"></li>
+		<ul>
+	</div>
+	<div class="rangediv"  type="box">	
+	   <input onchange='SetVolumeValue(this.value)' type="range" id="volumerange" min="0" max="10" step="1" value="0">
+	</div>
+	<div type="box">
+		<ul class="functionlist">
+			<li class="l1" onclick="OpenWebSite()">聆听官方</li>
+			<li class="l2" onclick="UserSetting()">软件设置</li>
+			<li class="l3" onclick="CloseWindow()">退出软件</li>
+		</ul>
+	</div>
+	<!--
+	<div type="box" class="textbox">
+		<div class="icon"><img src="images/demo2.png"/></div>
+		<div class="icontext"><a onclick="OpenWebSite()">聆听官方</a></div>
+	</div>
+	<div type="box" class="textbox">
+		<div class="icon"><img src="images/demo2.png"/></div>
+		<div class="icontext"><a onclick="CloseWindow()">退出软件</a></div>
+	</div>
+	-->
+</div>
+</body>
+</html>
